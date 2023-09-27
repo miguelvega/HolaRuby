@@ -1,0 +1,126 @@
+# Respuestas
+## Parte 1
+
+### lib
+
+
+```
+def sum(arr)
+  # COMPLETA TU CODIGO
+  resultado = 0
+  arr.each { |n| resultado += n }
+  resultado
+end
+
+def max_2_sum arr
+  # COMPLETA TU CODGO
+  return 0 if arr.empty?
+  return arr[0] if arr.length == 1
+  
+  max1 = nil
+  max2 = nil
+  arr.each do |num|
+    if max1.nil? || num > max1
+      max2 = max1
+      max1 = num
+    elsif max2.nil? || num > max2
+      max2 = num
+    end
+  end
+
+  # Suma los dos números máximos
+  sum = max1 + max2
+  
+end
+
+
+def sum_to_n?(arr, n)
+  arr.each_with_index do |elemento, index|
+    # Verifica si n - elemento está en el arreglo y no es el mismo elemento
+    if arr.include?(n - elemento) && arr.index(n - elemento) != index
+      return true
+    end
+  end
+  false
+end
+
+
+
+```
+
+
+### spec
+```
+
+require_relative '../lib/ruby_intro.rb'
+
+
+
+
+describe 'Introduccion a Ruby' do
+  describe '#sum' do
+    it 'deberia ser definido' do
+      expect { sum([1, 3, 4]) }.not_to raise_error
+    end
+
+    it 'retorna la suma correcta'  do
+      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer
+      expect(sum([1, 2, 3, 4, 5])).to eq(15)
+      expect(sum([1, 2, 3, 4, -5])).to eq(5)
+      expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90)
+    end
+
+    it 'trabaja sobre el arreglo vacio' do
+      expect { sum([]) }.not_to raise_error
+      expect(sum([])).to be_zero
+    end
+  end
+
+  describe '#max_2_sum' do
+    it 'deberia ser definido' do
+      expect { max_2_sum([1, 2, 3]) }.not_to raise_error
+    end
+    it 'retorna la suma correcta'  do
+      expect(max_2_sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer
+      expect(max_2_sum([1, -2, -3, -4, -5])).to eq(-1)
+    end
+    it 'trabaja incluso si los dos valores mas grandes son lo mismo' do
+      expect(max_2_sum([1, 2, 3, 3])).to eq(6)
+    end
+    it 'retorna cero si el arreglo es vacio' do
+      expect(max_2_sum([])).to be_zero
+    end
+    it 'retorna el valor del elemento si es solo un elemento' do
+      expect(max_2_sum([3])).to eq(3)
+    end
+  end
+
+  describe '#sum_to_n' do
+    it 'deberia ser definido' do
+      expect { sum_to_n?([1, 2, 3], 4) }.not_to raise_error
+    end
+    it 'retorna verdadero cuando dos elementos cualesquiera se suman al segundo argumento' do
+      expect(sum_to_n?([1, 2, 3, 4, 5], 5)).to be true # 2 + 3 = 5
+      expect(sum_to_n?([3, 0, 5], 5)).to be true # 0 + 5 = 5
+      expect(sum_to_n?([-1, -2, 3, 4, 5, -8], -3)).to be true  # maneja la suma negativa
+      expect(sum_to_n?([-1, -2, 3, 4, 5, -8], 12)).to be false # 3 + 4 + 5 = 12 
+      expect(sum_to_n?([-1, -2, 3, 4, 6, -8], 12)).to be false # no dos elementos que sumar
+    end
+    it 'retorna falso para un unico elemento del arreglo' do
+      expect(sum_to_n?([0], 0)).to be false
+      expect(sum_to_n?([1], 1)).to be false
+      expect(sum_to_n?([-1], -1)).to be false
+      expect(sum_to_n?([-3], 0)).to be false
+    end
+    it 'retorna falso para un arreglo vacior' do
+      expect(sum_to_n?([], 0)).to be false
+      expect(sum_to_n?([], 7)).to be false
+    end
+  end
+end
+
+```
+
+
+
+![Captura de pantalla de 2023-09-27 04-53-34](https://github.com/miguelvega/HolaRuby/assets/124398378/1e7b324e-8259-42fa-aacb-bba16961fda1)
