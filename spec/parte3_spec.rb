@@ -26,13 +26,13 @@ describe 'BookInStock' do
   end
   describe 'constructor' do
     it 'debe rechazar el numero ISBN no valido' do
-      expect { BookInStock.new('', 25.00) }.to raise_error(ArgumentError)
+      expect { BookInStock.new("", 25.00) }.to raise_error(ArgumentError)
     end
     it 'debe rechazar el precio cero' do
-      expect { BookInStock.new('isbn1', 0) }.to raise_error(ArgumentError)
+      expect { BookInStock.new("isbn1", 0) }.to raise_error(ArgumentError)
     end
     it 'debe rechazar el precio negativo' do
-      expect { BookInStock.new('isbn1', -5.0) }.to raise_error(ArgumentError)
+      expect { BookInStock.new("isbn1", -5.0) }.to raise_error(ArgumentError)
     end
   end
   describe '#price_as_string' do

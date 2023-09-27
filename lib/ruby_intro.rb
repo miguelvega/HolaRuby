@@ -39,3 +39,45 @@ def sum_to_n?(arr, n)
   false
 end
 
+
+
+# Parte 2
+
+def hello(name)
+  # COMPLETA TU CODIGO
+   if name =~ /^(Mr\.|Mrs\.|Ms\.)?\s?[A-Za-z]+$/
+    "Hello, #{name}"
+   end
+    
+end
+
+def starts_with_consonant? s
+  # COMPLETA TU CODIGO
+  return /^[b-df-hj-np-tv-z]/i.match?(s)
+end
+
+def binary_multiple_of_4? s
+  # COMPLETA TU CODIGO
+  return /^[01]+$/.match?(s) && s.to_i(2) % 4 == 0
+end
+
+# Parte 3
+
+class BookInStock
+# COMPLETA TU CODIGO
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    raise ArgumentError, "ISBN no válido" if isbn.empty?
+    raise ArgumentError, "Precio no válido" if price <= 0
+
+    @isbn = isbn
+    @price = price
+  end
+  
+
+  def price_as_string
+    format("$%.2f", @price)
+  end
+  
+end
