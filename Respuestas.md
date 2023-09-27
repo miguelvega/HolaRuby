@@ -3,6 +3,9 @@
 
 ### lib
 
+### metodo sum
+El método sum recibe un arreglo de números e itera a través de ellos gracias al método each en un bloque de una sola linea, con lo cual se ejecuta la suma total de todos los números en el arreglo
+
 
 ```
 def sum(arr)
