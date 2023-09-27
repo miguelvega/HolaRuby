@@ -7,7 +7,7 @@
 El método sum recibe un arreglo de números e itera a través de ellos gracias al método each en un bloque de una sola linea, con lo cual se ejecuta la suma total de todos los números en el arreglo
 
 ### metodo max_2_sum 
-El método max_2_sum recibe un arreglo de números enteros como argumento y devuelve la suma de sus elementos.Por lo tanto, retorno 0 si arreglo resulta ser vacío, retorna el unico elemento si el arreglo solo contiene un elemento. Finalmente, en el bloque de código entre do y end se itera a través de los elementos del arreglo arr uno por uno utilizando el método each,luego de que el bucle each haya recorrido todo el arreglo, max1 contendrá el número más grande y max2 contendrá el segundo número más grande y retorna la suma fuera del bloque.
+El método max_2_sum recibe un arreglo de números enteros como argumento y devuelve la suma de sus elementos.Por lo tanto, retorna 0 si arreglo resulta ser vacío, retorna el unico elemento si el arreglo solo contiene un elemento. Finalmente, en el bloque de código entre do y end se itera a través de los elementos del arreglo arr uno por uno utilizando el método each,luego de que el bucle each haya recorrido todo el arreglo, max1 contendrá el número más grande y max2 contendrá el segundo número más grande y retorna la suma fuera del bloque.
 ```
 def sum(arr)
   # COMPLETA TU CODIGO
