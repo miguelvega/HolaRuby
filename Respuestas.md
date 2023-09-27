@@ -122,5 +122,14 @@ end
 ```
 
 
-
 ![Captura de pantalla de 2023-09-27 04-53-34](https://github.com/miguelvega/HolaRuby/assets/124398378/1e7b324e-8259-42fa-aacb-bba16961fda1)
+
+
+## Parte2
+
+### lib
+
+### spec
+
+
+![Captura de pantalla de 2023-09-27 16-15-28](https://github.com/miguelvega/HolaRuby/assets/124398378/bc934b89-c4ae-4b90-9a79-9223d7513f67)
