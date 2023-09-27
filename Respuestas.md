@@ -215,3 +215,86 @@ end
 ```
 
 ![Captura de pantalla de 2023-09-27 16-15-28](https://github.com/miguelvega/HolaRuby/assets/124398378/bc934b89-c4ae-4b90-9a79-9223d7513f67)
+
+
+## Parte 3
+
+### lib
+```
+class BookInStock
+# COMPLETA TU CODIGO
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    raise ArgumentError, "ISBN no válido" if isbn.empty?
+    raise ArgumentError, "Precio no válido" if price <= 0
+
+    @isbn = isbn
+    @price = price
+  end
+  
+
+  def price_as_string
+    format("$%.2f", @price)
+  end
+  
+end
+
+```
+
+### spec
+```
+require_relative '../lib/ruby_intro.rb'
+
+describe 'BookInStock' do
+  it 'esto deberia ser definido' do
+    expect { BookInStock }.not_to raise_error
+  end
+
+  describe 'getters y setters' do
+    before(:each)  { @book = BookInStock.new('isbn1', 33.8) }
+    it 'debe establecer ISBN ' do
+      expect(@book.isbn).to eq('isbn1')
+    end
+    it 'deberia establecer el precio ' do
+      expect(@book.price).to eq(33.8)
+    end
+    it 'deberia cambiar el ISBN' do
+      @book.isbn = 'isbn2'
+      expect(@book.isbn).to eq('isbn2')
+    end
+    it 'deberia cambiar el precio' do
+      @book.price = 300.0
+      expect(@book.price).to eq(300.0)
+    end
+  end
+  describe 'constructor' do
+    it 'debe rechazar el numero ISBN no valido' do
+      expect { BookInStock.new("", 25.00) }.to raise_error(ArgumentError)
+    end
+    it 'debe rechazar el precio cero' do
+      expect { BookInStock.new("isbn1", 0) }.to raise_error(ArgumentError)
+    end
+    it 'debe rechazar el precio negativo' do
+      expect { BookInStock.new("isbn1", -5.0) }.to raise_error(ArgumentError)
+    end
+  end
+  describe '#price_as_string' do
+    it 'esto deberia ser definido' do
+      expect(BookInStock.new('isbn1', 10)).to respond_to(:price_as_string)
+    end
+    it 'debe mostrar 33.95 como "$33.95"' do
+      expect(BookInStock.new('isbn11', 33.95).price_as_string).to eq('$33.95')
+    end
+    it 'debe mostrar  1.1 como $1.10' do
+      expect(BookInStock.new('isbn11', 1.1).price_as_string).to eq('$1.10')
+    end
+    it 'debe mostrar  20 como $20.00 ' do
+      expect(BookInStock.new('isbn11', 20).price_as_string).to eq('$20.00')
+    end
+  end
+end
+
+```
+
+![Captura de pantalla de 2023-09-27 17-10-09](https://github.com/miguelvega/HolaRuby/assets/124398378/db35c4c5-6e54-423f-9ba2-d4e60ddb27b9)
